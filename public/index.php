@@ -10,6 +10,7 @@
 
 	if (!isset($_SESSION['generados'])) {
 		$_SESSION['generados'] = array();
+		$lb = '<span id="texto_inicio">Pulse el botón "Obtener numero" para comenzar...</span>';
 	}
 
 	if (isset($_POST['obtener_numero'])) {
@@ -17,6 +18,7 @@
            	$n = rand(1, 90);
         } while (in_array($n, $_SESSION['generados'])); 
 		array_push($_SESSION['generados'], $n);
+		$lb = '<span id="numero_actual">'.$n.'</span>';
 	}
 
 ?>
@@ -30,6 +32,7 @@
 	<body>
 		<form action="index.php" method="post">
 <?php
+			echo '<label>'.$lb.'</label>';
 			echo '<table align="center" border="1">';
 			for ($i=0; $i<11; $i++) {
 				echo '<tr>';
