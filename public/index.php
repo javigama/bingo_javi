@@ -60,7 +60,7 @@
 				}
 				echo '</table>';
 ?>
-				<button type="submit" name="obtener_numero">Obtener numero</button>
+				<button type="submit" name="obtener_numero" <?php if(count($_SESSION['generados']) == 90) echo 'disabled'; else echo 'enabled'; ?> >Obtener numero</button>
 				<button type="submit" name="nuevo_juego">Nuevo juego</button>
 			</div>
 		</form>
