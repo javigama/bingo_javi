@@ -24,5 +24,7 @@
 		}
 		echo '</table>';
 ?>
+		<button type="submit" name="obtener_numero">Obtener numero</button>
+		<button type="submit" name="nuevo_juego">Nuevo juego</button>
 	</body>
 </html>
