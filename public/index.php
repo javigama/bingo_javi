@@ -47,12 +47,12 @@
 							else
 								$k = $j*10 + $i;
 							if (!in_array($k, $_SESSION['generados']))
-								echo '<td id="'.$k.'">'.$k.'</td>';
+								echo '<td>'.$k.'</td>';
 							else {
 								if ($k == $n)
-									echo '<td id="'.$k.'" class="rojo">'.$k.'</td>';
+									echo '<td class="rojo">'.$k.'</td>';
 								else
-									echo '<td id="'.$k.'" class="amarillo">'.$k.'</td>';
+									echo '<td class="amarillo">'.$k.'</td>';
 							}
 						}
 					}
