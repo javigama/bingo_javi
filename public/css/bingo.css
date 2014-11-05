@@ -16,6 +16,7 @@ body {width:800px;margin:0 auto;}
 	border:2px solid blue;
 	width:2em;
 }
-
+.rojo {background-color:red;}
+.amarillo {background-color:yellow;}
 td {width:2em;text-align:center;font-size:2em;}
 button {font-size:2em;}
