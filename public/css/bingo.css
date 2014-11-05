@@ -1,0 +1,21 @@
+body {width:800px;margin:0 auto;}
+
+#panel_numeros {
+	text-align:center;
+}
+#texto_inicio {
+	background-color:orange;
+	color:white;
+	font-size:2em;
+	border:2px solid black;
+}
+#numero_actual {
+	background-color:white;
+	color:blue;
+	font-size:4em;
+	border:2px solid blue;
+	width:2em;
+}
+
+td {width:2em;text-align:center;font-size:2em;}
+button {font-size:2em;}
