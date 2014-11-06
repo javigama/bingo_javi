@@ -1,6 +1,6 @@
 body {width:800px;margin:0 auto;}
 
-#panel_numeros {
+#panel_numeros, #carton{
 	text-align:center;
 }
 #texto_inicio {
@@ -18,5 +18,7 @@ body {width:800px;margin:0 auto;}
 }
 .rojo {background-color:red;}
 .amarillo {background-color:yellow;}
-td {width:2em;text-align:center;font-size:2em;}
+.inputstyle {font-family: Arial; font-size: 1em;}
+#carton td {vertical-align: center;background-color:black;width:1em;text-align:center;}
+#panel_numeros td {width:1.5em;text-align:center;font-size:1.5em;}
 button {font-size:2em;}
