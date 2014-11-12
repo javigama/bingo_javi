@@ -65,7 +65,61 @@
 		}
 		echo '</table>';
 	}
-	
+
+	function compruebaCarton() {
+		$fila0 = array();
+		$fila1 = array();
+		$fila2 = array();
+		$lineas = 0;
+		$sw = true;
+		for ($i=0; $i<9; $i++) {
+			for ($j=0; $j<=2; $j++) {
+				$c = $j*9+$i;
+				if ($_SESSION['casillas'][$c] == 1 && $_POST[$c] <> "") {
+					$sw = false;
+					if ($i == 0) {
+						if (!($_POST[$c] > $i*10 && $_POST[$c] < ($i+1)*10)) {
+							$sw = true;
+							break 2;
+						}
+					}
+					if ($i == 8) {
+						if (!($_POST[$c] >= $i*10 && $_POST[$c] <= ($i+1)*10)) {
+							$sw = true;
+							break 2;
+						}
+					}
+					if ($i > 0 && $i < 8) {
+						if (!($_POST[$c] >= $i*10 && $_POST[$c] < ($i+1)*10)) {
+							$sw = true;
+							break 2;
+						}
+					}
+					array_push($fila1, $_POST[$c]);
+				}
+			}
+		}
+		$total_numeros = count($fila0) + count($fila1) + count($fila2);
+		if ($sw or $total_numeros <> 15)
+			$_SESSION['etiqueta'] = '<span id="texto_inicio">Formato de cartón incorrecto</span>';
+		else {
+			if (count(array_diff($fila0, $_SESSION['generados'])) == 0)
+				$lineas ++;
+			if (count(array_diff($fila1, $_SESSION['generados'])) == 0)
+				$lineas ++;
+			if (count(array_diff($fila2, $_SESSION['generados'])) == 0)
+				$lineas ++;
+			if ($lineas == 0)
+				$_SESSION['etiqueta'] = '<span id="texto_inicio">Cartón sin premio</span>';
+			if ($lineas > 0 && $lineas < 3)
+				$_SESSION['etiqueta'] = '<span id="texto_inicio">¡¡¡ LINEA !!!</span>';
+			if ($lineas == 3)
+				$_SESSION['etiqueta'] = '<span id="texto_inicio">¡¡¡ BINGO !!!</span>';
+		}
+			
+		
+	}
+
 ?>
 
 <!DOCTYPE html>
@@ -120,7 +174,8 @@
 				}
 				creaCarton();
 ?>
-				
+				<button type="submit" name="comprueba_carton">Comprueba cartón</button>
+
 			</div>
 		</form>
 	</body>
